@@ -1,5 +1,3 @@
-require 'csv'
-
 describe "Stats", type: :aruba do
 
   it "can compute a set of statistics from numbers in a csv file" do

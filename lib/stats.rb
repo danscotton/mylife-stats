@@ -29,8 +29,6 @@ class Stats
   private
 
   def clean(data)
-    data.map do |row|
-      row.compact.map(&:to_i)
-    end
+    data.map { |row| row.compact.map(&:to_i) }
   end
 end
