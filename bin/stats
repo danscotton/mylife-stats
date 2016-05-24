@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require 'csv'
+require_relative '../lib/stats'
+
+if ARGV.empty?
+  puts "Usage: `bin/stats <filename.csv>`"
+  exit
+end
+
+file = ARGV.shift
+
+unless File.exists?(file)
+  puts "Could not find file '#{file}`"
+  exit
+end
+
+stats = Stats.new(CSV.read(file))
+
+puts "Statistics for '#{file}':"
+puts ""
+puts "  Total numbers: #{stats.total_count}"
+puts "  Mean: #{stats.mean}"
+puts "  Most numbers in a line: #{stats.longest_line}"
+puts "  Mode: #{stats.mode}"
+puts ""
